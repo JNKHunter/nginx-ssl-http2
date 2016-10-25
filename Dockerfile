@@ -7,9 +7,9 @@ ENV OPENSSL_VERSION 1.0.2d
 
 RUN apt-get update && apt-get install -y ca-certificates build-essential wget libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev
 
-RUN wget http://www.openssl.org/source/openssl-${NGINX_VERSION}.tar.gz \
-  && tar -xvzf openssl-${NGINX_VERSION}.tar.gz \
-  && cd openssl-${NGINX_VERSION} \
+RUN wget http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz \
+  && tar -xvzf openssl-${OPENSSL_VERSION}.tar.gz \
+  && cd openssl-${OPENSSL_VERSION} \
   && ./config \
     --prefix=/usr \
     --openssldir=/usr/ssl \
