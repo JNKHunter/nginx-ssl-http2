@@ -3,12 +3,13 @@ FROM debian:jessie
 MAINTAINER John Hunter
 
 ENV NGINX_VERSION 1.10.2
+ENV OPENSSL_VERSION 1.0.2d
 
 RUN apt-get update && apt-get install -y ca-certificates build-essential wget libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev
 
-RUN wget http://www.openssl.org/source/openssl-1.0.2d.tar.gz \
-  && tar -xvzf openssl-1.0.2d.tar.gz \
-  && cd openssl-1.0.2d \
+RUN wget http://www.openssl.org/source/openssl-${NGINX_VERSION}.tar.gz \
+  && tar -xvzf openssl-${NGINX_VERSION}.tar.gz \
+  && cd openssl-${NGINX_VERSION} \
   && ./config \
     --prefix=/usr \
     --openssldir=/usr/ssl \
